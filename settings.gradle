@@ -1,0 +1,4 @@
+include ':diordna'
+rootProject.name = 'Fractals Demo'
+include 'desktop'
+
