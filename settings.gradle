@@ -1,4 +1,13 @@
-include ':diordna'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url "https://maven.pkg.jetbrains.space/public/p/compose/dev" }
+    }
+}
+
 rootProject.name = 'Fractals Demo'
-include 'desktop'
+
+include ':desktop'
+include ':android'
+include ':computation'
 

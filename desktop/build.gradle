@@ -1,6 +1,7 @@
+
 plugins {
-    id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.compose'
 }
 
 group 'io.github.dzkoirn'
@@ -8,12 +9,21 @@ version '0.1'
 
 repositories {
     mavenCentral()
+    maven { url "https://maven.pkg.jetbrains.space/public/p/compose/dev" }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation compose.desktop.currentOs
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+}
+
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+    }
 }
 
 test {

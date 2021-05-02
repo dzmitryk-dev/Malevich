@@ -1,0 +1,14 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group 'io.bitbucket.dzkoirn.fractals'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+}
