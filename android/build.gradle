@@ -8,13 +8,17 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "io.github.dzkoirn.fractals"
+        applicationId "io.github.dzkoirn.fractals.android"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        compose true
     }
 
     buildTypes {
@@ -27,17 +31,44 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion jetpack_compose_version
+    }
+
+    // Gradle automatically adds 'android.test.runner' as a dependency.
+    useLibrary 'android.test.runner'
+
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
 }
 
 dependencies {
+    implementation "androidx.compose.ui:ui:$jetpack_compose_version"
+    // Tooling support (Previews, etc.)
+    implementation "androidx.compose.ui:ui-tooling:$jetpack_compose_version"
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation "androidx.compose.foundation:foundation:$jetpack_compose_version"
+    // Material Design
+    implementation "androidx.compose.material:material:$jetpack_compose_version"
+    // Material design icons
+    implementation "androidx.compose.material:material-icons-core:$jetpack_compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$jetpack_compose_version"
+    // Integration with activities
+    implementation 'androidx.activity:activity-compose:1.3.0-rc02'
+    // Integration with ViewModels
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
+    // Integration with observables
+    implementation "androidx.compose.runtime:runtime-rxjava2:$jetpack_compose_version"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // UI Tests
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$jetpack_compose_version"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
