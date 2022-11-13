@@ -9,10 +9,10 @@ allprojects {
 
 buildscript {
     ext {
-        kotlin_version = '1.5.21'
-        android_gradle_version = '7.0.0-beta05'
-        jetbrain_compose_version = '0.4.0-build185'
-        jetpack_compose_version = '1.0.0-rc02'
+        kotlin_version = '1.6.10'
+        android_gradle_version = '7.2.0'
+        jetbrain_compose_version = '1.1.1'
+        jetpack_compose_version = '1.1.1'
     }
 
     repositories {
