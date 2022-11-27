@@ -9,5 +9,4 @@ rootProject.name = 'Fractals Demo'
 
 include ':desktop'
 include ':android'
-include ':computation'
 
