@@ -1,13 +1,26 @@
+buildscript {
+    ext {
+        kotlin_version = '1.7.20'
+        jetbrain_compose_version = '1.2.0'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://maven.pkg.jetbrains.space/public/p/compose/dev" }
+    }
+}
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm'
-    id 'org.jetbrains.compose'
+    id 'org.jetbrains.kotlin.jvm' version "$kotlin_version"
+    id 'org.jetbrains.compose' version "$jetbrain_compose_version"
 }
 
 group 'io.github.dzkoirn'
 version '0.1'
 
 repositories {
+    google()
     mavenCentral()
     maven { url "https://maven.pkg.jetbrains.space/public/p/compose/dev" }
 }

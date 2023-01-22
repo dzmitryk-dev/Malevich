@@ -5,8 +5,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'Fractals Demo'
-
-include ':desktop'
-include ':android'
+rootProject.name = 'Malevich Demo Android'
 
