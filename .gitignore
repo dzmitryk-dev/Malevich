@@ -1,6 +1,6 @@
 /.gradle/
 /.idea/
-/android/local.properties
 /.mainframer/
 /desktop/build/
 /desktop/.idea/
+/local.properties

@@ -1,22 +1,11 @@
-buildscript {
-    ext {
-        kotlin_version = '1.8.0'
-        jetbrain_compose_version = '1.3.0'
-    }
-
-    repositories {
-        google()
-        mavenCentral()
-        maven { url "https://maven.pkg.jetbrains.space/public/p/compose/dev" }
-    }
-}
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version "$kotlin_version"
-    id 'org.jetbrains.compose' version "$jetbrain_compose_version"
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.compose'
 }
 
-group 'io.github.dzkoirn'
+group 'io.github.dzkoirn.malevich.desktop'
 version '0.1'
 
 repositories {
@@ -26,6 +15,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(":common")
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation compose.desktop.currentOs
 
@@ -33,9 +23,18 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 compose.desktop {
     application {
         mainClass = "MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.AppImage)
+            packageName = "Malevich"
+            packageVersion = "1.0.0"
+        }
     }
 }
 
