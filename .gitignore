@@ -4,3 +4,5 @@
 /desktop/build/
 /desktop/.idea/
 /local.properties
+/common/build/
+/common/.gradle/
