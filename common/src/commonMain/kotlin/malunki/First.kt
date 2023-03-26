@@ -61,6 +61,5 @@ fun First(width: Int, height: Int) {
             iterationsCounter.value = it
             delay(100L)
         }
-
     }
 }
