@@ -1,6 +1,7 @@
 package malunki
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -10,52 +11,45 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Matrix
 import kotlinx.coroutines.delay
+import kotlin.math.min
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 
 @Composable
 fun RotatingLine(width: Int, height: Int) {
 
-    val corners = mutableStateOf(Pair<Offset, Offset>(Offset.Zero, Offset(width.toFloat(), height.toFloat())))
+    val center = Offset(width.toFloat() / 2, height.toFloat() / 2)
+    val radius = min(width, height) * 0.8 / 2
 
-    Canvas(modifier = Modifier.fillMaxSize()) {
-        val (start, end) = corners.value
-        this.drawLine(
-            color = Color.Black,
-            start = start,
-            end = end
+    val corners = mutableStateOf(
+        Pair(
+            center - Offset(radius.toFloat(), 0.0f),
+            center + Offset(radius.toFloat(), 0.0f)
         )
+    )
+
+    Canvas(modifier = Modifier.fillMaxSize().background(color = Color.Black)) {
+        val (start, end) = corners.value
+        this.drawLine(color = Color.White, start = start, end = end)
+        this.drawCircle(color = Color.White, radius = 2.0f, center = center)
+        this.drawCircle(color = Color.White, radius = 2.0f, center = start)
+        this.drawCircle(color = Color.White, radius = 2.0f, center = end)
     }
 
     LaunchedEffect(Unit) {
-        val matrix = Matrix()
+        val rotatePipeline = listOf(
+            Matrix().apply { translate(-(width/2).toFloat(), -(height/2).toFloat(), 0f) },
+            Matrix().apply { rotateZ(1.0f) },
+            Matrix().apply { translate((width/2).toFloat(), (height/2).toFloat(), 0f) }
+        )
         while (true) {
-            delay(1.0.seconds)
-            matrix.translate(-(width/2).toFloat(), -(height/2).toFloat(), 0f)
-            corners.value = corners.value.let { (start, end) ->
+            corners.value = rotatePipeline.fold(corners.value) { (start, end), matrix ->
                 Pair(
                     matrix.map(start),
                     matrix.map(end)
                 )
             }
-            matrix.reset()
-            matrix.rotateX(10.0f)
-            corners.value = corners.value.let { (start, end) ->
-                Pair(
-                    matrix.map(start),
-                    matrix.map(end)
-                )
-            }
-            matrix.reset()
-            matrix.translate((width/2).toFloat(), (height/2).toFloat(), 0f)
-            corners.value = corners.value.let { (start, end) ->
-                Pair(
-                    matrix.map(start),
-                    matrix.map(end)
-                )
-            }
-            matrix.reset()
-            delay(1.0.seconds)
+            delay(500.0.milliseconds)
         }
     }
 }
