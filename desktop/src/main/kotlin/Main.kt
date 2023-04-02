@@ -2,6 +2,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import malunki.First
 import malunki.RotatingLine
+import malunki.RotatingLine2
 import mu.KotlinLogging
 
 fun main() = application {
@@ -10,6 +11,6 @@ fun main() = application {
         val logger = KotlinLogging.logger("Malevich App")
         logger.debug { "Windows size is: width=$width, height=$height " }
 //        First(width, height)
-        RotatingLine(width, height)
+        RotatingLine2(width, height)
     }
 }
