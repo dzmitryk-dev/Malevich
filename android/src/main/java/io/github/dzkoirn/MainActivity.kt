@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import malunki.First
+import malunki.Mandelbrot
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,8 @@ class MainActivity : ComponentActivity() {
         val (width, height) = with(displayMetrics) { widthPixels to heightPixels }
 
         setContent {
-            First(width, height)
+            //First(width, height)
+            Mandelbrot(width, height)
         }
     }
 }

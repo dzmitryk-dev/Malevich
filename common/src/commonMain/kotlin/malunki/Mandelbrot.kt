@@ -15,7 +15,6 @@ fun Mandelbrot(width: Int, height: Int) {
     var imageBitmap by remember { mutableStateOf(ImageBitmap(width, height)) }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        // CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         Canvas(modifier = Modifier.fillMaxSize()) {
             drawImage(imageBitmap)
         }
@@ -82,12 +81,12 @@ private fun calculateColor(px: Int, py: Int, xscaleFactor: Float, yscaleFactor: 
     var x = 0.0f
     var y = 0.0f
     var iteration = 0
-    val maxIteration = 255
+    val maxIteration = 1000
     while (x * x + y * y <= 2 * 2 && iteration < maxIteration) {
         val xtemp = x * x - y * y + x0
         y = 2 * x * y + y0
         x = xtemp
         iteration++
     }
-    return iteration
+    return iteration * 255 / 1000
 }
