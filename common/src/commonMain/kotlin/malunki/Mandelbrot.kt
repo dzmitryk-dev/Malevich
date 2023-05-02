@@ -81,12 +81,12 @@ private fun calculateColor(px: Int, py: Int, xscaleFactor: Float, yscaleFactor: 
     var x = 0.0f
     var y = 0.0f
     var iteration = 0
-    val maxIteration = 1000
+    val maxIteration = 10000
     while (x * x + y * y <= 2 * 2 && iteration < maxIteration) {
         val xtemp = x * x - y * y + x0
         y = 2 * x * y + y0
         x = xtemp
         iteration++
     }
-    return iteration * 255 / 1000
+    return iteration * 255 / maxIteration
 }

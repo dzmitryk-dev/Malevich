@@ -1,9 +1,6 @@
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import malunki.First
-import malunki.Mandelbrot
-import malunki.RotatingLine
-import malunki.RotatingLine2
+import malunki.*
 import mu.KotlinLogging
 
 fun main() = application {
@@ -13,6 +10,7 @@ fun main() = application {
         logger.debug { "Windows size is: width=$width, height=$height " }
 //        First(width, height)
 //        RotatingLine2(width, height)
-        Mandelbrot(width, height)
+//        Mandelbrot(width, height)
+        MandelbrotChatGpt(width, height)
     }
 }
