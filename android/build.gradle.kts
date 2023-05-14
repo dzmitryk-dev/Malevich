@@ -1,7 +1,9 @@
+import org.jetbrains.kotlin.gradle.plugin.extraProperties
+
 plugins {
     id("org.jetbrains.compose")
     id("com.android.application")
-    kotlin("android")
+    kotlin("android").version("1.8.0")
 }
 
 repositories {
