@@ -17,5 +17,5 @@ jobs:
           distribution: 'temurin'
       - uses: gradle/gradle-build-action@v2
         with:
-          arguments: app:build desktop:build
+          arguments: android:build desktop:build
       - run: echo "${{ job.status }}."
