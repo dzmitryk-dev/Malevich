@@ -1,6 +1,7 @@
 package malunki
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -8,25 +9,34 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.*
 import kotlinx.coroutines.delay
+import java.time.Duration
 import kotlin.math.sqrt
 import kotlin.random.Random
 
+@OptIn(ExperimentalTextApi::class)
 @Composable
 fun MandelbrotChatGpt(width: Int, height: Int) {
+    val debugDraw = false
     var imageBitmap by remember { mutableStateOf(ImageBitmap(width, height)) }
     var frame by remember { mutableStateOf(Pair(Offset.Zero, Offset(x = width.toFloat(), y = height.toFloat()))) }
     var center by remember { mutableStateOf(Offset(x = width.toFloat()/2, y = height.toFloat()/2)) }
+    var duration by remember { mutableStateOf(0L) }
+    var textMeasurer = rememberTextMeasurer()
 
     Canvas(modifier = Modifier.fillMaxSize()) {
         drawImage(imageBitmap)
-        drawRect(
-            Color.Green,
-            topLeft = frame.first,
-            size = Size(width = frame.second.x - frame.first.x, height = frame.second.y - frame.first.y),
-            style = Stroke(1.0f)
-        )
+        if (debugDraw) {
+            drawRect(
+                Color.Green,
+                topLeft = frame.first,
+                size = Size(width = frame.second.x - frame.first.x, height = frame.second.y - frame.first.y),
+                style = Stroke(1.0f)
+            )
+        }
         drawCircle(Color.Red, radius = 1.0f, center = center)
+        drawText(textMeasurer = textMeasurer, text = "$duration ms", style = TextStyle.Default.copy(background = Color.Black, color = Color.White))
     }
 
     LaunchedEffect(Unit) {
@@ -49,7 +59,7 @@ fun MandelbrotChatGpt(width: Int, height: Int) {
         )
         val sizeFactor = 0.9 //0.1 + 0.8 * Math.random()
 
-        val numIterations = 100
+        val numIterations = 500
 
         // генерируем указанное количество изображений
         repeat(numIterations) {
@@ -82,17 +92,19 @@ fun MandelbrotChatGpt(width: Int, height: Int) {
                     y = ((yMax - newyMin) * yScale).toFloat()
                 )
             )
-            delay(50L)
+            delay(10L)
 
             xMin = newxMin
             xMax = newxMax
             yMin = newyMin
             yMax = newyMax
 
+            val start = System.nanoTime()
             imageBitmap = fromPixelMap(width, height,
                 generateMandelbrotImage(width, height, xMin, xMax, yMin, yMax))
             frame = Pair(Offset.Zero, Offset(x = width.toFloat(), y = height.toFloat()))
-            delay(50L)
+            duration = Duration.ofNanos(System.nanoTime() - start).toMillis()
+            delay(10L)
         }
     }
 }
