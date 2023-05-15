@@ -20,18 +20,16 @@ fun First(width: Int, height: Int) {
     val iterationsCounter = remember { mutableStateOf(0) }
     val lines = remember { mutableStateListOf<Pair<Offset, Offset>>() }
 
-    MaterialTheme {
-        Column(Modifier.fillMaxSize()) {
-            Text("Iterations: ${iterationsCounter.value} from $iterations")
-        }
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            lines.forEach {(start, end) ->
-                drawLine(
-                    color = Color.Black,
-                    start = start,
-                    end = end
-                )
-            }
+    Column(Modifier.fillMaxSize()) {
+        Text("Iterations: ${iterationsCounter.value} from $iterations")
+    }
+    Canvas(modifier = Modifier.fillMaxSize()) {
+        lines.forEach {(start, end) ->
+            drawLine(
+                color = Color.Black,
+                start = start,
+                end = end
+            )
         }
     }
 
