@@ -16,11 +16,11 @@ import kotlin.math.sqrt
 import kotlin.random.Random
 
 /**
- * Experiment: Realization of zooming animation for Mandelbrot set implemented with help of CahtGpt
+ * Optimized version of Mandelbrot Chat Gpt realization
  */
 @OptIn(ExperimentalTextApi::class)
 @Composable
-fun MandelbrotChatGpt(width: Int, height: Int) {
+fun MandelbrotChatGptOptimized(width: Int, height: Int) {
     val debugDraw = false
     var imageBitmap by remember { mutableStateOf(ImageBitmap(width, height)) }
     var frame by remember { mutableStateOf(Pair(Offset.Zero, Offset(x = width.toFloat(), y = height.toFloat()))) }
@@ -120,7 +120,7 @@ private fun generateMandelbrotImage(
     yMin: Double,
     yMax: Double
 ): Array<List<Offset>> {
-    val maxIterations = 1000 // максимальное количество итераций
+    val maxIterations = 255 // максимальное количество итераций
     val image = Array(0x100) { mutableListOf<Offset>() } // создаем пустой массив списков
 
     for (i in 0 until width) {
@@ -139,8 +139,13 @@ private fun generateMandelbrotImage(
                 iteration++
             }
 
-            val gray = (255 * iteration / maxIterations) // вычисляем оттенок серого
-            image[gray].add(Offset(i.toFloat(), j.toFloat())) // добавляем координаты точки в список
+            if (iteration < maxIterations) {
+                image[0].add(Offset(i.toFloat(), j.toFloat()))
+            } else {
+                image[255].add(Offset(i.toFloat(), j.toFloat()))
+            }
+//            val gray = (255 * iteration / maxIterations) // вычисляем оттенок серого
+//            image[gray].add(Offset(i.toFloat(), j.toFloat())) // добавляем координаты точки в список
         }
     }
 
