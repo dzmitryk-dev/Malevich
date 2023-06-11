@@ -1,4 +1,6 @@
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.onClick
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -10,6 +12,7 @@ import mu.KotlinLogging
 import ui.ListSelector
 import ui.Malunek
 
+@OptIn(ExperimentalFoundationApi::class)
 fun main() = application {
     Window(onCloseRequest = ::exitApplication, title = "Malevich for Desktop") {
         val (width, height) = with(window.size) { width to height }
@@ -23,8 +26,10 @@ fun main() = application {
                 modifier = Modifier.onGloballyPositioned { coordinates ->
                     areaWidth.value = width - coordinates.size.width
                 },
-                initial = Malunek.FIRST,
-                onItemSelected = { m -> malunek.value = m }
+                selected = malunek,
+                textSelectListener = { m -> onClick(onClick = {
+                    malunek.value = m
+                }) },
             )
             when(malunek.value) {
                 Malunek.FIRST -> First(areaWidth.value, height)
@@ -35,6 +40,7 @@ fun main() = application {
                 Malunek.MANDELBROT_CHAT_GPT_OPTIMIZED -> MandelbrotChatGptOptimized(areaWidth.value, height)
                 Malunek.WHITE_NOISE -> WhiteNoise(areaWidth.value, height)
                 Malunek.WHITE_NOISE_V2 -> WhiteNoiseV2(areaWidth.value, height)
+                Malunek.COLORFULL_NOISE -> ColorfullNoise(areaWidth.value, height)
             }
         }
 

@@ -1,31 +1,35 @@
 package ui
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.onClick
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ListSelector(
     modifier: Modifier,
-    initial: Malunek,
-    onItemSelected: (Malunek) -> Unit,
+    selected: State<Malunek>,
+    textSelectListener: Modifier.(Malunek) -> Modifier,
 ) {
-    val selected = remember { mutableStateOf(initial) }
-
     Column(modifier = modifier) {
         Malunek.values().forEach { malunek ->
+            val isSelected = selected.value == malunek
             Text(
-                modifier = Modifier.onClick(onClick = {
-                    selected.value = malunek
-                    onItemSelected(malunek)
-                }),
+                modifier = modifier
+                    .background(color = if (isSelected) {
+                        Color.Black
+                    } else {
+                        Color.White
+                    }).textSelectListener(malunek),
                 text = malunek.title,
+                color = if (isSelected) {
+                    Color.White
+                } else {
+                    Color.Black
+                }
             )
         }
     }

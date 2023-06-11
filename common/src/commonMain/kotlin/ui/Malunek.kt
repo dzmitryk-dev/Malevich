@@ -9,5 +9,6 @@ enum class Malunek(
     ROTATING_LINE_1("Rotating Line 1"),
     ROTATING_LINE_2("Rotatin Line 2"),
     WHITE_NOISE("White noise v1"),
-    WHITE_NOISE_V2("White noise v2")
+    WHITE_NOISE_V2("White noise v2"),
+    COLORFULL_NOISE("Colorfull Noise")
 }
