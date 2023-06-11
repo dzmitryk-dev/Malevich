@@ -1,8 +1,6 @@
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import malunki.First
-import malunki.MandelbrotChatGpt
-import malunki.MandelbrotChatGptOptimized
+import malunki.*
 import mu.KotlinLogging
 
 fun main() = application {
@@ -14,6 +12,9 @@ fun main() = application {
 //        RotatingLine2(width, height)
 //        Mandelbrot(width, height)
 //        MandelbrotChatGpt(width, height)
-        MandelbrotChatGptOptimized(width, height)
+//        MandelbrotChatGptOptimized(width, height)
+//        WhiteNoise(width, height)
+//        WhiteNoiseV2(width, height)
+        ColorfullNoise(width, height)
     }
 }

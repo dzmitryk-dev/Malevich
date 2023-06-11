@@ -32,6 +32,9 @@ fun main() = application {
                 Malunek.MANDELBROT_CHAT_GPT -> MandelbrotChatGpt(areaWidth.value, height)
                 Malunek.ROTATING_LINE_1 -> RotatingLine(areaWidth.value, height)
                 Malunek.ROTATING_LINE_2 -> RotatingLine2(areaWidth.value, height)
+                Malunek.MANDELBROT_CHAT_GPT_OPTIMIZED -> MandelbrotChatGptOptimized(areaWidth.value, height)
+                Malunek.WHITE_NOISE -> WhiteNoise(areaWidth.value, height)
+                Malunek.WHITE_NOISE_V2 -> WhiteNoiseV2(areaWidth.value, height)
             }
         }
 
