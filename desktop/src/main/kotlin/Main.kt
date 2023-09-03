@@ -15,6 +15,7 @@ fun main() = application {
 //        MandelbrotChatGptOptimized(width, height)
 //        WhiteNoise(width, height)
 //        WhiteNoiseV2(width, height)
-        ColorfullNoise(width, height)
+//        ColorfullNoise(width, height)
+        Matrix(width, height)
     }
 }
