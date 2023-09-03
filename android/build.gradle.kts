@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.gradle.plugin.extraProperties
-
 plugins {
     id("org.jetbrains.compose")
     id("com.android.application")
-    kotlin("android").version("1.8.0")
+    kotlin("android")
 }
 
 repositories {
@@ -32,11 +30,12 @@ android {
             isMinifyEnabled = true
         }
     }
+    namespace = "io.github.dzkoirn"
 }
 
 dependencies {
     implementation(project(":common"))
-    implementation("androidx.activity:activity-compose:1.7.1")
+    implementation("androidx.activity:activity-compose:1.7.2")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.10.1")
 

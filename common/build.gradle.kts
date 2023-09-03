@@ -1,5 +1,3 @@
-import org.jetbrains.compose.compose
-
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
@@ -10,7 +8,7 @@ group = "com.github.dzkoirn.malevich.common"
 version = "1.0-SNAPSHOT"
 
 kotlin {
-    android()
+    androidTarget()
     jvm("desktop") {
         jvmToolchain(11)
     }
@@ -45,4 +43,5 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    namespace = "malunki"
 }
