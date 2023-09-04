@@ -32,7 +32,7 @@ fun main() = application {
                 }) },
             )
             when(malunek.value) {
-                Malunek.FIRST -> First(areaWidth.value, height)
+                Malunek.FIRST -> First()
                 Malunek.MANDELBROT -> Mandelbrot(areaWidth.value, height)
                 Malunek.MANDELBROT_CHAT_GPT -> MandelbrotChatGpt(areaWidth.value, height)
                 Malunek.ROTATING_LINE_1 -> RotatingLine(areaWidth.value, height)

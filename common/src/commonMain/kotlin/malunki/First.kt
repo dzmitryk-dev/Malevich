@@ -8,22 +8,49 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import kotlinx.coroutines.delay
+import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
 
 @Composable
-fun First(width: Int, height: Int) {
+fun First() {
     val random = Random(System.currentTimeMillis())
-    val iterations = random.nextInt(10..100_000)
+    val iterations = remember { random.nextInt(10..100_000) }
     val iterationsCounter = remember { mutableStateOf(0) }
-    val lines = remember { mutableStateListOf<Pair<Offset, Offset>>() }
+
+    val lines = remember { mutableListOf<Pair<Offset, Offset>>() }
 
     Column(Modifier.fillMaxSize()) {
         Text("Iterations: ${iterationsCounter.value} from $iterations")
     }
     Canvas(modifier = Modifier.fillMaxSize()) {
-        lines.forEach {(start, end) ->
+        val width = size.width
+        val height = size.height
+
+        if (lines.isEmpty()) {
+            Pair(
+                Offset(
+                    random.nextDouble(0.0, width.toDouble()).toFloat(),
+                    random.nextDouble(0.0, height.toDouble()).toFloat()
+                ),
+                Offset(
+                    random.nextDouble(0.0, width.toDouble()).toFloat(),
+                    random.nextDouble(0.0, height.toDouble()).toFloat()
+                )
+            )
+        } else {
+            Pair(
+                lines.last().second,
+                Offset(
+                    random.nextDouble(until = width.toDouble()).toFloat(),
+                    random.nextDouble(until = height.toDouble()).toFloat()
+                )
+            )
+        }.let { coordinates -> lines.add(coordinates) }
+
+        lines.forEach { (start, end) ->
             drawLine(
                 color = Color.Black,
                 start = start,
@@ -34,29 +61,8 @@ fun First(width: Int, height: Int) {
 
     LaunchedEffect(Unit) {
         repeat(iterations) {
-            if (lines.isEmpty()) {
-                Pair(
-                    Offset(
-                        random.nextInt(0, width).toFloat(),
-                        random.nextInt(0, height).toFloat()
-                    ),
-                    Offset(
-                        random.nextInt(0, width).toFloat(),
-                        random.nextInt(0, height).toFloat()
-                    )
-                )
-            } else {
-                Pair(
-                    lines.last().second,
-                    Offset(
-                        random.nextInt(0, width).toFloat(),
-                        random.nextInt(0, height).toFloat()
-                    )
-                )
-            }.let { coordinates ->  lines.add(coordinates) }
-
             iterationsCounter.value = it
-            delay(100L)
+            delay(1000L)
         }
     }
 }
