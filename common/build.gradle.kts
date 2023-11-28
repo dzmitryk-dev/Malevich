@@ -10,7 +10,7 @@ version = "1.0-SNAPSHOT"
 kotlin {
     androidTarget()
     jvm("desktop") {
-        jvmToolchain(11)
+        jvmToolchain(17)
     }
     sourceSets {
         val commonMain by getting {

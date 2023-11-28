@@ -17,12 +17,14 @@ fun main() = application {
         val (width, height) = with(window.size) { width to height }
         val logger = KotlinLogging.logger("Malevich App")
         logger.debug { "Windows size is: width=$width, height=$height " }
+        println("Width = $width, height = $height")
         Box(modifier = Modifier.fillMaxSize()) {
-            First()
+//            First()
+//            RotatingLine()
+            RotatingLine2()
         }
 
-//          RotatingLine(width, height)
-//        RotatingLine2(width, height)
+
 //        Mandelbrot(width, height)
 //        MandelbrotChatGpt(width, height)
 //        MandelbrotChatGptOptimized(width, height)
