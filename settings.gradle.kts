@@ -9,4 +9,4 @@ pluginManagement {
 
 rootProject.name = "Malevich"
 
-include(":android", ":desktop", ":common")
+include(":android", ":desktop", ":common", ":composepp")
