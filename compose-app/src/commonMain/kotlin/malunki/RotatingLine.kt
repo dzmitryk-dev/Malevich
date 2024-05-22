@@ -49,10 +49,8 @@ fun RotatingLine() {
     }
 
     LaunchedEffect(angel.value) {
-        while (true) {
-            angel.value += 1
-            delay(500.0.milliseconds)
-        }
+        delay(500.0.milliseconds)
+        angel.value += 1
     }
 }
 

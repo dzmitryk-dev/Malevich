@@ -37,13 +37,18 @@ kotlin {
     jvm("desktop")
     
     sourceSets {
-        val desktopMain by getting
-        val desktopTest by getting
-
-        androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.androidx.activity.compose)
+        val commonMain by getting
+        val jvmShared by creating {
+            dependsOn(commonMain)
         }
+        val desktopMain by getting {
+            dependsOn(jvmShared)
+        }
+        val desktopTest by getting
+        val androidMain by getting {
+            dependsOn(jvmShared)
+        }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -51,6 +56,11 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.kotlinx.datetime)
+        }
+        androidMain.dependencies {
+            implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.androidx.activity.compose)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

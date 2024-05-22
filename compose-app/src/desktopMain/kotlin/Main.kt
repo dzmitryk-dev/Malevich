@@ -14,8 +14,8 @@ fun main() = application {
         println("Width = $width, height = $height")
         Box(modifier = Modifier.fillMaxSize()) {
 //            First()
-//            RotatingLine()
-            RotatingLine2()
+            RotatingLine()
+//            RotatingLine2()
         }
 
 
