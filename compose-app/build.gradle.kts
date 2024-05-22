@@ -38,7 +38,8 @@ kotlin {
     
     sourceSets {
         val desktopMain by getting
-        
+        val desktopTest by getting
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
@@ -53,6 +54,12 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(libs.kotlin.logging.jvm)
+            implementation(libs.slf4j.simple)
+        }
+        desktopTest.dependencies {
+            implementation(libs.junit.jupiter.api)
+            runtimeOnly(libs.junit.jupiter.engine)
         }
     }
 }
@@ -88,6 +95,7 @@ android {
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
+        coreLibraryDesugaring(libs.desugar.jdk.libs)
     }
 }
 
