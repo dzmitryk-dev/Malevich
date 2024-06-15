@@ -1,4 +1,4 @@
-group = "com.github.dzkoirn"
+group = "com.github.dzmitrykdev"
 version = "1.0"
 
 allprojects {
@@ -10,10 +10,10 @@ allprojects {
 }
 
 plugins {
-    alias(libs.plugins.android.app) apply false
-    alias(libs.plugins.android.lib) apply false
-    alias(libs.plugins.compose) apply false
-    alias(libs.plugins.kotlin.jvm) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.multiplatform) apply false
+    // this is necessary to avoid the plugins to be loaded multiple times
+    // in each subproject's classloader
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.jetbrainsCompose) apply false
+    alias(libs.plugins.kotlinMultiplatform) apply false
 }
