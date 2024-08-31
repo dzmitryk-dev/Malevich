@@ -3,7 +3,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import malunki.*
+import malunki.RotatingLine
 import mu.KotlinLogging
 
 fun main() = application {
@@ -17,7 +17,6 @@ fun main() = application {
             RotatingLine()
 //            RotatingLine2()
         }
-
 
 //        Mandelbrot(width, height)
 //        MandelbrotChatGpt(width, height)

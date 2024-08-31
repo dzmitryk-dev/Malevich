@@ -1,0 +1,181 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ArgumentListWrapping:RotatingLine.kt$(modifier = Modifier.fillMaxSize() .background(color = Color.Black) .onSizeChanged { canvasSize = it } )</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//@Composable</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//@OptIn(ExperimentalTextApi::class)</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//fun ColorfullNoise(width: Int, height: Int) {</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.foundation.Canvas</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.foundation.layout.fillMaxSize</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.runtime.Composable</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.runtime.LaunchedEffect</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.runtime.mutableStateOf</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.runtime.remember</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.ui.Modifier</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.ui.geometry.Offset</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.ui.graphics.*</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.ui.text.ExperimentalTextApi</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.ui.text.TextStyle</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.ui.text.drawText</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import androidx.compose.ui.text.rememberTextMeasurer</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import kotlin.random.Random</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import kotlin.time.DurationUnit</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import kotlin.time.toDuration</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//import kotlinx.coroutines.delay</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//package malunki</ID>
+    <ID>CommentSpacing:ColorfullNoise.kt$//}</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//): Array&lt;List&lt;Offset&gt;&gt; {</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//): Pair&lt;Double, Double&gt; {</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$///**</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//@Composable</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//@OptIn(ExperimentalTextApi::class)</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//fun MandelbrotChatGpt(width: Int, height: Int) {</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.foundation.Canvas</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.foundation.layout.Box</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.foundation.layout.fillMaxSize</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.runtime.*</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.ui.Modifier</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.ui.geometry.Offset</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.ui.geometry.Size</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.ui.graphics.*</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.ui.graphics.drawscope.Stroke</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import androidx.compose.ui.text.*</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import java.time.Duration</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import kotlin.math.sqrt</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import kotlin.random.Random</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//import kotlinx.coroutines.delay</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//package malunki</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//private fun findBoundaryOnLine(</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//private fun fromPixelMap(width: Int, height: Int, colorMapping: Array&lt;List&lt;Offset&gt;&gt;): ImageBitmap {</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//private fun generateMandelbrotImage(</ID>
+    <ID>CommentSpacing:MandelbrotChatGpt.kt$//}</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//): Array&lt;List&lt;Offset&gt;&gt; {</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//): Pair&lt;Double, Double&gt; {</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$///**</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//// image[gray].add(Offset(i.toFloat(), j.toFloat())) // добавляем координаты точки в список</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//// val gray = (255 * iteration / maxIterations) // вычисляем оттенок серого</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//@Composable</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//@OptIn(ExperimentalTextApi::class)</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//fun MandelbrotChatGptOptimized(width: Int, height: Int) {</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.foundation.Canvas</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.foundation.layout.fillMaxSize</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.runtime.*</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.ui.Modifier</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.ui.geometry.Offset</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.ui.geometry.Size</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.ui.graphics.*</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.ui.graphics.drawscope.Stroke</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import androidx.compose.ui.text.*</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import java.time.Duration</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import kotlin.math.sqrt</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import kotlin.random.Random</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//import kotlinx.coroutines.delay</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//package malunki</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//private fun findBoundaryOnLine(</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//private fun fromPixelMap(width: Int, height: Int, colorMapping: Array&lt;List&lt;Offset&gt;&gt;): ImageBitmap {</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//private fun generateMandelbrotImage(</ID>
+    <ID>CommentSpacing:MandelbrotChatGptOptimized.kt$//}</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//@Composable</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//@OptIn(ExperimentalTextApi::class)</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//fun WhiteNoise(width: Int, height: Int) {</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.foundation.Canvas</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.foundation.layout.fillMaxSize</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.runtime.Composable</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.runtime.LaunchedEffect</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.runtime.mutableStateOf</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.runtime.remember</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.ui.Modifier</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.ui.geometry.Offset</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.ui.graphics.*</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.ui.text.ExperimentalTextApi</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.ui.text.TextStyle</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.ui.text.drawText</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import androidx.compose.ui.text.rememberTextMeasurer</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import kotlin.random.Random</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import kotlin.time.DurationUnit</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import kotlin.time.toDuration</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//import kotlinx.coroutines.delay</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//package malunki</ID>
+    <ID>CommentSpacing:WhiteNoise.kt$//}</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//@Composable</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//@OptIn(ExperimentalTextApi::class)</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//fun WhiteNoiseV2(width: Int, height: Int) {</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.foundation.Canvas</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.foundation.layout.fillMaxSize</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.runtime.Composable</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.runtime.LaunchedEffect</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.runtime.mutableStateOf</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.runtime.remember</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.ui.Modifier</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.ui.geometry.Offset</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.ui.graphics.*</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.ui.text.ExperimentalTextApi</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.ui.text.TextStyle</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.ui.text.drawText</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import androidx.compose.ui.text.rememberTextMeasurer</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import kotlin.random.Random</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import kotlin.time.DurationUnit</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import kotlin.time.toDuration</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//import kotlinx.coroutines.delay</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//internal fun Color.invert(): Color {</ID>
+    <ID>CommentSpacing:WhiteNoiseV2.kt$//}</ID>
+    <ID>EmptyFunctionBlock:Matrix.kt${ }</ID>
+    <ID>FinalNewline:ColorfullNoise.kt$.ColorfullNoise.kt</ID>
+    <ID>FinalNewline:First.kt$malunki.First.kt</ID>
+    <ID>FinalNewline:Malunek.kt$ui.Malunek.kt</ID>
+    <ID>FinalNewline:Matrix.kt$malunki.Matrix.kt</ID>
+    <ID>FinalNewline:RotatingLine.kt$malunki.RotatingLine.kt</ID>
+    <ID>FinalNewline:Time.kt$platform.Time.kt</ID>
+    <ID>FinalNewline:WhiteNoiseV2.kt$.WhiteNoiseV2.kt</ID>
+    <ID>FunctionNaming:First.kt$@Composable fun First()</ID>
+    <ID>FunctionNaming:Mandelbrot.kt$@Composable fun Mandelbrot(width: Int, height: Int)</ID>
+    <ID>FunctionNaming:Matrix.kt$@Composable fun Matrix(width: Int, height: Int)</ID>
+    <ID>FunctionNaming:RotatingLine.kt$@Composable fun RotatingLine()</ID>
+    <ID>FunctionNaming:RotatingLine.kt$@Composable fun RotatingLine2()</ID>
+    <ID>ImportOrdering:Res.kt$import kotlin.ByteArray import kotlin.OptIn import kotlin.String import org.jetbrains.compose.resources.ExperimentalResourceApi import org.jetbrains.compose.resources.getResourceUri import org.jetbrains.compose.resources.readResourceBytes</ID>
+    <ID>Indentation:Res.kt$ </ID>
+    <ID>Indentation:Res.kt$Res$ </ID>
+    <ID>MagicNumber:First.kt$10</ID>
+    <ID>MagicNumber:First.kt$1000L</ID>
+    <ID>MagicNumber:First.kt$100_000</ID>
+    <ID>MagicNumber:Mandelbrot.kt$0x100</ID>
+    <ID>MagicNumber:Mandelbrot.kt$0xFF</ID>
+    <ID>MagicNumber:Mandelbrot.kt$1.2</ID>
+    <ID>MagicNumber:Mandelbrot.kt$10000</ID>
+    <ID>MagicNumber:Mandelbrot.kt$2.0</ID>
+    <ID>MagicNumber:Mandelbrot.kt$2.5f</ID>
+    <ID>MagicNumber:Mandelbrot.kt$255</ID>
+    <ID>MagicNumber:RotatingLine.kt$0.8</ID>
+    <ID>MagicNumber:RotatingLine.kt$360</ID>
+    <ID>MaxLineLength:ColorfullNoise.kt$// (System.nanoTime() - startPoint).toDuration(DurationUnit.NANOSECONDS).toLong(DurationUnit.MILLISECONDS),</ID>
+    <ID>MaxLineLength:MandelbrotChatGpt.kt$// drawText(textMeasurer = textMeasurer, text = "Image generation time = $duration ms", style = TextStyle.Default.copy(background = Color.Black, color = Color.White))</ID>
+    <ID>MaxLineLength:MandelbrotChatGptOptimized.kt$// drawText(textMeasurer = textMeasurer, text = "Image generation time = $duration ms", style = TextStyle.Default.copy(background = Color.Black, color = Color.White))</ID>
+    <ID>MaxLineLength:WhiteNoise.kt$// (System.nanoTime() - startPoint).toDuration(DurationUnit.NANOSECONDS).toLong(DurationUnit.MILLISECONDS),</ID>
+    <ID>MaxLineLength:WhiteNoiseV2.kt$// (System.nanoTime() - startPoint).toDuration(DurationUnit.NANOSECONDS).toLong(DurationUnit.MILLISECONDS),</ID>
+    <ID>NewLineAtEndOfFile:ColorfullNoise.kt$.ColorfullNoise.kt</ID>
+    <ID>NewLineAtEndOfFile:First.kt$malunki.First.kt</ID>
+    <ID>NewLineAtEndOfFile:Malunek.kt$ui.Malunek.kt</ID>
+    <ID>NewLineAtEndOfFile:Matrix.kt$malunki.Matrix.kt</ID>
+    <ID>NewLineAtEndOfFile:RotatingLine.kt$malunki.RotatingLine.kt</ID>
+    <ID>NewLineAtEndOfFile:Time.kt$platform.Time.kt</ID>
+    <ID>NewLineAtEndOfFile:WhiteNoiseV2.kt$.WhiteNoiseV2.kt</ID>
+    <ID>NoBlankLineBeforeRbrace:Matrix.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:Mandelbrot.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:Mandelbrot.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:Matrix.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:RotatingLine.kt$ </ID>
+    <ID>NoWildcardImports:Mandelbrot.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:Mandelbrot.kt$import androidx.compose.ui.graphics.*</ID>
+    <ID>NoWildcardImports:RotatingLine.kt$import androidx.compose.runtime.*</ID>
+    <ID>PackageName:Res.kt$package malevich.compose_app.generated.resources</ID>
+    <ID>PackageNaming:Res.kt$package malevich.compose_app.generated.resources</ID>
+    <ID>SpacingAroundOperators:Mandelbrot.kt$/</ID>
+    <ID>UnusedParameter:Matrix.kt$height: Int</ID>
+    <ID>UnusedParameter:Matrix.kt$width: Int</ID>
+    <ID>WildcardImport:Mandelbrot.kt$import androidx.compose.runtime.*</ID>
+    <ID>WildcardImport:Mandelbrot.kt$import androidx.compose.ui.graphics.*</ID>
+    <ID>WildcardImport:RotatingLine.kt$import androidx.compose.runtime.*</ID>
+    <ID>Wrapping:RotatingLine.kt$(</ID>
+  </CurrentIssues>
+</SmellBaseline>

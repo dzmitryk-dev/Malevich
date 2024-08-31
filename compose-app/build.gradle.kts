@@ -1,3 +1,4 @@
+import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
@@ -7,6 +8,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.detekt)
 }
 
 kotlin {
@@ -121,3 +123,42 @@ compose.desktop {
         }
     }
 }
+
+detekt {
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = false // activate all available (even unstable) rules.
+    config.setFrom("${rootProject.projectDir}/config/detekt.yml") // point to your custom config defining rules to run, overwriting default behavior
+    baseline = file("${rootProject.projectDir}/config/baseline.xml") // a way of suppressing issues before introducing detekt
+}
+
+tasks.withType<Detekt>().configureEach {
+    reports {
+        html.required.set(true) // observe findings in your browser with structure and code snippets
+        xml.required.set(true) // checkstyle like format mainly for integrations like Jenkins
+        sarif.required.set(false) // standardized SARIF format (https://sarifweb.azurewebsites.net/) to support integrations with GitHub Code Scanning
+        md.required.set(true) // simple Markdown format
+    }
+}
+
+tasks.withType<Detekt> {
+    tasks.getByName("build").dependsOn(this)
+}
+
+tasks.register("detektAll") {
+    allprojects {
+        this@register.dependsOn(tasks.withType<Detekt>())
+    }
+}
+
+dependencies {
+    detektPlugins(libs.detekt.formatting)
+}
+
+//
+//// Kotlin DSL
+//tasks.withType<Detekt>().configureEach {
+//    jvmTarget = "1.8"
+//}
+//tasks.withType<DetektCreateBaselineTask>().configureEach {
+//    jvmTarget = "1.8"
+//}8
