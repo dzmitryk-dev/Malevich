@@ -2,6 +2,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -14,7 +15,6 @@ plugins {
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        moduleName = "composeApp"
         browser {
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
@@ -30,10 +30,9 @@ kotlin {
     }
     
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
+        @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
     
@@ -153,12 +152,3 @@ tasks.register("detektAll") {
 dependencies {
     detektPlugins(libs.detekt.formatting)
 }
-
-//
-//// Kotlin DSL
-//tasks.withType<Detekt>().configureEach {
-//    jvmTarget = "1.8"
-//}
-//tasks.withType<DetektCreateBaselineTask>().configureEach {
-//    jvmTarget = "1.8"
-//}8
