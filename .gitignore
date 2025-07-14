@@ -8,3 +8,4 @@
 /common/.gradle/
 /compose-app/build/
 /.kotlin/
+/build/
