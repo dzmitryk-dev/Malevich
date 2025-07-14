@@ -128,6 +128,8 @@ detekt {
     allRules = false // activate all available (even unstable) rules.
     config.setFrom("${rootProject.projectDir}/config/detekt.yml") // point to your custom config defining rules to run, overwriting default behavior
     baseline = file("${rootProject.projectDir}/config/baseline.xml") // a way of suppressing issues before introducing detekt
+    basePath = projectDir.absolutePath
+    source.setFrom(files(projectDir, "src"))
 }
 
 tasks.withType<Detekt>().configureEach {
@@ -137,6 +139,8 @@ tasks.withType<Detekt>().configureEach {
         sarif.required.set(false) // standardized SARIF format (https://sarifweb.azurewebsites.net/) to support integrations with GitHub Code Scanning
         md.required.set(true) // simple Markdown format
     }
+
+    exclude("**/generated/**", "**/build/**", "**/*.gradle.kts")
 }
 
 tasks.withType<Detekt> {
