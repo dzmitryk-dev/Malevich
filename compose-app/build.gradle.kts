@@ -40,16 +40,9 @@ kotlin {
     
     sourceSets {
         val commonMain by getting
-        val jvmShared by creating {
-            dependsOn(commonMain)
-        }
-        val desktopMain by getting {
-            dependsOn(jvmShared)
-        }
+        val desktopMain by getting
         val desktopTest by getting
-        val androidMain by getting {
-            dependsOn(jvmShared)
-        }
+        val androidMain by getting
 
         commonMain.dependencies {
             implementation(compose.runtime)

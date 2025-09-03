@@ -1,6 +1,8 @@
 package malunki
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
@@ -19,48 +21,50 @@ import kotlin.time.ExperimentalTime
 
 @OptIn(ExperimentalTime::class)
 @Composable
-fun First() {
+fun First(modifier: Modifier = Modifier) {
     val random = Random(Clock.System.now().toEpochMilliseconds())
     val iterations = remember { random.nextInt(10..100_000) }
     val iterationsCounter = remember { mutableStateOf(0) }
 
     val lines = remember { mutableListOf<Pair<Offset, Offset>>() }
 
-    Column(Modifier.fillMaxSize()) {
-        Text("Iterations: ${iterationsCounter.value} from $iterations")
-    }
-    Canvas(modifier = Modifier.fillMaxSize()) {
-        val width = size.width
-        val height = size.height
+    Box(modifier = modifier.fillMaxSize()) {
+        Canvas(modifier = modifier.fillMaxSize().background(color = Color.Black)) {
+            val width = size.width
+            val height = size.height
 
-        if (lines.isEmpty()) {
-            Pair(
-                Offset(
-                    random.nextDouble(0.0, width.toDouble()).toFloat(),
-                    random.nextDouble(0.0, height.toDouble()).toFloat()
-                ),
-                Offset(
-                    random.nextDouble(0.0, width.toDouble()).toFloat(),
-                    random.nextDouble(0.0, height.toDouble()).toFloat()
-                )
-            )
-        } else {
-            Pair(
-                lines.last().second,
-                Offset(
-                    random.nextDouble(until = width.toDouble()).toFloat(),
-                    random.nextDouble(until = height.toDouble()).toFloat()
-                )
-            )
-        }.let { coordinates -> lines.add(coordinates) }
+            if (width > 0.0f && height > 0.0f) {
+                if (lines.isEmpty()) {
+                    Pair(
+                        Offset(
+                            random.nextDouble(0.0, width.toDouble()).toFloat(),
+                            random.nextDouble(0.0, height.toDouble()).toFloat()
+                        ),
+                        Offset(
+                            random.nextDouble(0.0, width.toDouble()).toFloat(),
+                            random.nextDouble(0.0, height.toDouble()).toFloat()
+                        )
+                    )
+                } else {
+                    Pair(
+                        lines.last().second,
+                        Offset(
+                            random.nextDouble(until = width.toDouble()).toFloat(),
+                            random.nextDouble(until = height.toDouble()).toFloat()
+                        )
+                    )
+                }.let { coordinates -> lines.add(coordinates) }
 
-        lines.forEach { (start, end) ->
-            drawLine(
-                color = Color.Black,
-                start = start,
-                end = end
-            )
+                lines.forEach { (start, end) ->
+                    drawLine(
+                        color = Color.White,
+                        start = start,
+                        end = end
+                    )
+                }
+            }
         }
+        Text("Iterations: ${iterationsCounter.value} from $iterations")
     }
 
     LaunchedEffect(Unit) {
