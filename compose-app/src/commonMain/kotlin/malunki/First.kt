@@ -12,13 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
-import platform.currentTimeMillis
 import kotlin.random.Random
 import kotlin.random.nextInt
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
+@OptIn(ExperimentalTime::class)
 @Composable
 fun First() {
-    val random = Random(currentTimeMillis())
+    val random = Random(Clock.System.now().toEpochMilliseconds())
     val iterations = remember { random.nextInt(10..100_000) }
     val iterationsCounter = remember { mutableStateOf(0) }
 
