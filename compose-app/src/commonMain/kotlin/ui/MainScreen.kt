@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,7 +26,11 @@ internal fun MainScreen(
 ) {
     Scaffold(
         modifier = modifier,
-        topBar = { /* Add your top bar here if needed */ },
+        topBar = {
+            TopAppBar(
+                title = { Text("Malevich") }
+            )
+        },
         content = { innerPadding ->
             Content(
                 modifier = Modifier.fillMaxSize(),
