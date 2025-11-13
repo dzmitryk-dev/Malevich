@@ -26,6 +26,10 @@ internal interface MalunkiProvider {
             title = "Mandelbrot",
             impl = ::Mandelbrot
         ),
+        Malunek(
+            title = "White Noise",
+            impl = ::WhiteNoise
+        ),
     )
 }
 

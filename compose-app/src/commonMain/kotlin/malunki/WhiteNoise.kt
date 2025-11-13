@@ -1,86 +1,73 @@
-//package malunki
-//
-//import androidx.compose.foundation.Canvas
-//import androidx.compose.foundation.layout.fillMaxSize
-//import androidx.compose.runtime.Composable
-//import androidx.compose.runtime.LaunchedEffect
-//import androidx.compose.runtime.mutableStateOf
-//import androidx.compose.runtime.remember
-//import androidx.compose.ui.Modifier
-//import androidx.compose.ui.geometry.Offset
-//import androidx.compose.ui.graphics.*
-//import androidx.compose.ui.text.ExperimentalTextApi
-//import androidx.compose.ui.text.TextStyle
-//import androidx.compose.ui.text.drawText
-//import androidx.compose.ui.text.rememberTextMeasurer
-//import kotlinx.coroutines.delay
-//import kotlin.random.Random
-//import kotlin.time.DurationUnit
-//import kotlin.time.toDuration
-//
-//@OptIn(ExperimentalTextApi::class)
-//@Composable
-//fun WhiteNoise(width: Int, height: Int) {
-//
-//    val debugInfo = remember { mutableStateOf(Pair(0L, 0)) }
-//    val textMeasurer = rememberTextMeasurer()
-//
-//    val imageBitmap = remember { mutableStateOf(ImageBitmap(width, height, ImageBitmapConfig.Rgb565)) }
-//
-//    Canvas(modifier = Modifier.fillMaxSize()) {
-//        drawImage(imageBitmap.value)
-//        drawText(
-//            textMeasurer = textMeasurer,
-//            text = "Image generation time = ${debugInfo.value.first} ms for ${debugInfo.value.second} dots",
-//            style = TextStyle.Default.copy(background = Color.Black, color = Color.White)
-//        )
-//    }
-//
-//    LaunchedEffect(Unit) {
-//        val random = Random(System.currentTimeMillis())
-//        val maxSize = width * height
-//
-//        val blackPaint = Paint().apply {
-//            color = Color.Black
-//            strokeWidth = 1.0f
-//            alpha = 1.0f
-//            isAntiAlias = false
-//            style = PaintingStyle.Fill
-//        }
-//        val whitePaint = Paint().apply {
-//            color = Color.White
-//            alpha = 1.0f
-//            isAntiAlias = false
-//            style = PaintingStyle.Fill
-//        }
-//
-//        while (true) {
-//            val startPoint = System.nanoTime()
-//            val size = random.nextInt(maxSize)
-//            Canvas(imageBitmap.value).also { canvas ->
-//                canvas.drawRect(
-//                    left = 0.0f,
-//                    top = 0.0f,
-//                    right = width.toFloat(),
-//                    bottom = height.toFloat(),
-//                    whitePaint
-//                )
-//                canvas.drawPoints(
-//                    pointMode = PointMode.Points,
-//                    points = List(size) {
-//                        Offset(
-//                            x = random.nextInt(until = width).toFloat(),
-//                            y = random.nextInt(until = height).toFloat()
-//                        )
-//                    },
-//                    paint = blackPaint
-//                )
-//            }
-//            debugInfo.value = Pair(
-//                (System.nanoTime() - startPoint).toDuration(DurationUnit.NANOSECONDS).toLong(DurationUnit.MILLISECONDS),
-//                size
-//            )
-//            delay(250.toDuration(DurationUnit.MILLISECONDS))
-//        }
-//    }
-//}
+@file:OptIn(ExperimentalTime::class)
+
+package malunki
+
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onSizeChanged
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
+import kotlin.random.Random
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
+
+@Composable
+fun WhiteNoise(modifier: Modifier = Modifier) {
+    var canvasWidth by remember { mutableStateOf(0) }
+    var canvasHeight by remember { mutableStateOf(0) }
+    
+    val randomOffsets by produceState(
+        initialValue = emptyList(),
+        canvasWidth,
+        canvasHeight
+    ) {
+        if (canvasWidth > 0 && canvasHeight > 0) {
+            while (true) {
+                value = generateRandomOffsets(canvasWidth, canvasHeight)
+                delay(500) // Update every 500ms
+            }
+        }
+    }
+    
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .onSizeChanged { intSize ->
+                canvasWidth = intSize.width
+                canvasHeight = intSize.height
+            }
+    ) {
+        Canvas(modifier = Modifier.fillMaxSize()) {
+            // Draw random points
+            randomOffsets.forEach { offset ->
+                drawCircle(
+                    color = Color.Black,
+                    radius = 1.0f,
+                    center = offset
+                )
+            }
+        }
+    }
+}
+
+private suspend fun generateRandomOffsets(width: Int, height: Int): List<Offset> {
+    return withContext(Dispatchers.Default) {
+        val random = Random(Clock.System.now().toEpochMilliseconds())
+        val numPoints = random.nextInt(100, 5000)
+        
+        List(numPoints) {
+            Offset(
+                x = random.nextInt(width).toFloat(),
+                y = random.nextInt(height).toFloat()
+            )
+        }
+    }
+}
