@@ -22,6 +22,10 @@ internal interface MalunkiProvider {
             title = "Rotating Line 2",
             impl = ::RotatingLine2
         ),
+        Malunek(
+            title = "Mandelbrot",
+            impl = ::Mandelbrot
+        ),
     )
 }
 
