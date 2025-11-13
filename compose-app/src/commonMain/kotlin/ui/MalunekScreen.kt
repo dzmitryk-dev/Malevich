@@ -15,19 +15,17 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 internal fun MalunekScreen(
     modifier: Modifier = Modifier,
     malunek: Malunek,
+    onBackClick: () -> Unit = {},
 ) {
     Scaffold(
         modifier = modifier,
         topBar = { /* Add your top bar here if needed */ },
         content = { innerPadding ->
-            // Content of the main screen goes here
-            // You can call other composable functions to build your UI
-            // For example: RotatingLine(), Matrix(), etc.
-            // Example: RotatingLine(innerPadding = innerPadding)
             Content(
                 modifier = Modifier.fillMaxSize(),
                 innerPadding = innerPadding,
-                malunek = malunek
+                malunek = malunek,
+                onBackClick = onBackClick
             )
         }
     )
@@ -38,6 +36,7 @@ private fun Content(
     modifier: Modifier,
     innerPadding: PaddingValues,
     malunek: Malunek,
+    onBackClick: () -> Unit = {},
 ) {
     malunek.impl(modifier.padding(innerPadding))
 }

@@ -1,6 +1,7 @@
 package ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -20,23 +21,17 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 internal fun MainScreen(
     modifier: Modifier = Modifier,
     malunki: List<Malunek> = emptyList(),
+    onMalunekClicked: (Malunek) -> Unit = {},
 ) {
-    // This is the main screen of the application.
-    // You can add your UI components here.
-    // For example, you can call other composable functions to build your UI.
-    // Example: RotatingLine(), Matrix(), etc.
     Scaffold(
         modifier = modifier,
         topBar = { /* Add your top bar here if needed */ },
         content = { innerPadding ->
-            // Content of the main screen goes here
-            // You can call other composable functions to build your UI
-            // For example: RotatingLine(), Matrix(), etc.
-            // Example: RotatingLine(innerPadding = innerPadding)
             Content(
                 modifier = Modifier.fillMaxSize(),
                 innerPadding = innerPadding,
-                malunki = malunki
+                malunki = malunki,
+                onMalunekClicked = onMalunekClicked
             )
         }
     )
@@ -46,23 +41,25 @@ internal fun MainScreen(
 private fun Content(
     modifier: Modifier,
     innerPadding: PaddingValues,
-    malunki: List<Malunek>
+    malunki: List<Malunek>,
+    onMalunekClicked: (Malunek) -> Unit = {},
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 240.dp),
         modifier = modifier.padding(innerPadding).background(color = Color.Red)
     ) {
-        items(malunki) { malunek -> GridCell(malunek) }
+        items(malunki) { malunek -> GridCell(malunek, onMalunekClicked) }
     }
 }
 
 @Composable
-private fun GridCell(malunek: Malunek) {
+private fun GridCell(malunek: Malunek, onMalunekClicked: (Malunek) -> Unit = {}) {
     Column(
         modifier = Modifier
             .padding(8.dp)
             .size(240.dp)
             .background(color = Color.Yellow)
+            .clickable { onMalunekClicked(malunek) }
     ) {
         // Draw the preview using Malunek's compose function
         malunek.impl(Modifier.weight(weight = 1.0f, fill = true).background(color = Color.Green))
