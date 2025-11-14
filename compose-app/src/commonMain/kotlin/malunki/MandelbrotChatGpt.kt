@@ -16,7 +16,7 @@
 //import kotlin.random.Random
 //
 ///**
-// * Experiment: Realization of zooming animation for Mandelbrot set implemented with help of CahtGpt
+// * Experiment: Realization of zooming animation for Mandelbrot set implemented with help of ChatGpt
 // */
 //@OptIn(ExperimentalTextApi::class)
 //@Composable
