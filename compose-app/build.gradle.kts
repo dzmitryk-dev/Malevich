@@ -151,4 +151,5 @@ tasks.register("detektAll") {
 
 dependencies {
     detektPlugins(libs.detekt.formatting)
+    detektPlugins(libs.compose.rules.detekt)
 }

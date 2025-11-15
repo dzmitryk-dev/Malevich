@@ -20,8 +20,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 internal fun MalunekScreen(
-    modifier: Modifier = Modifier,
     malunek: Malunek,
+    modifier: Modifier = Modifier,
     onBackClick: () -> Unit = {},
 ) {
     Scaffold(
@@ -52,9 +52,9 @@ internal fun MalunekScreen(
 
 @Composable
 private fun Content(
-    modifier: Modifier,
     innerPadding: PaddingValues,
     malunek: Malunek,
+    modifier: Modifier = Modifier,
     onBackClick: () -> Unit = {},
 ) {
     malunek.impl(modifier.padding(innerPadding))
@@ -62,7 +62,7 @@ private fun Content(
 
 @Preview
 @Composable
-private fun PreviewMalunekScreen() {
+private fun PreviewMalunekScreenPreview() {
     MalunekScreen(
         modifier = Modifier.fillMaxSize(),
         malunek = Malunek(
@@ -74,7 +74,7 @@ private fun PreviewMalunekScreen() {
 
 @Preview
 @Composable
-private fun PreviewContent() {
+private fun PreviewContentPreview() {
     Content(
         modifier = Modifier.fillMaxSize(),
         innerPadding = PaddingValues(0.dp),

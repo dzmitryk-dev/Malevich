@@ -24,7 +24,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 internal fun MainScreen(
     modifier: Modifier = Modifier,
     malunki: List<Malunek> = emptyList(),
-    onMalunekClicked: (Malunek) -> Unit = {},
+    onMalunekClick: (Malunek) -> Unit = {},
 ) {
     Scaffold(
         modifier = modifier,
@@ -38,7 +38,7 @@ internal fun MainScreen(
                 modifier = Modifier.fillMaxSize(),
                 innerPadding = innerPadding,
                 malunki = malunki,
-                onMalunekClicked = onMalunekClicked
+                onMalunekClick = onMalunekClick
             )
         }
     )
@@ -46,27 +46,27 @@ internal fun MainScreen(
 
 @Composable
 private fun Content(
-    modifier: Modifier,
     innerPadding: PaddingValues,
     malunki: List<Malunek>,
-    onMalunekClicked: (Malunek) -> Unit = {},
+    modifier: Modifier = Modifier,
+    onMalunekClick: (Malunek) -> Unit = {},
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 240.dp),
         modifier = modifier.padding(innerPadding).background(color = Color.Red)
     ) {
-        items(malunki) { malunek -> GridCell(malunek, onMalunekClicked) }
+        items(malunki) { malunek -> GridCell(malunek, onMalunekClick) }
     }
 }
 
 @Composable
-private fun GridCell(malunek: Malunek, onMalunekClicked: (Malunek) -> Unit = {}) {
+private fun GridCell(malunek: Malunek, onMalunekClick: (Malunek) -> Unit = {}) {
     Column(
         modifier = Modifier
             .padding(8.dp)
             .size(240.dp)
             .background(color = Color.Yellow)
-            .clickable { onMalunekClicked(malunek) }
+            .clickable { onMalunekClick(malunek) }
     ) {
         // Draw the preview using Malunek's compose function
         malunek.impl(Modifier.weight(weight = 1.0f, fill = true).background(color = Color.Green))
@@ -79,7 +79,7 @@ private fun GridCell(malunek: Malunek, onMalunekClicked: (Malunek) -> Unit = {})
 
 @Preview
 @Composable
-private fun PreviewMainScreen() {
+private fun PreviewMainScreenPreview() {
     MainScreen(
         modifier = Modifier.fillMaxSize(),
         malunki = MalunkiProvider().getMalunki(),
@@ -88,7 +88,7 @@ private fun PreviewMainScreen() {
 
 @Preview
 @Composable
-private fun PreviewGridCell() {
+private fun PreviewGridCellPreview() {
     GridCell(
         malunek = Malunek(
             title = "RotatingLine",

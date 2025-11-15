@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -23,12 +23,12 @@ import kotlin.time.ExperimentalTime
 fun First(modifier: Modifier = Modifier) {
     val random = Random(Clock.System.now().toEpochMilliseconds())
     val iterations = remember { random.nextInt(10..100_000) }
-    val iterationsCounter = remember { mutableStateOf(0) }
+    val iterationsCounter = remember { mutableIntStateOf(0) }
 
     val lines = remember { mutableListOf<Pair<Offset, Offset>>() }
 
     Box(modifier = modifier.fillMaxSize()) {
-        Canvas(modifier = modifier.fillMaxSize().background(color = Color.Black)) {
+        Canvas(modifier = Modifier.fillMaxSize().background(color = Color.Black)) {
             val width = size.width
             val height = size.height
 

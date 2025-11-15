@@ -5,7 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -16,8 +16,8 @@ import kotlin.math.min
 import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
-fun RotatingLine(modifier: Modifier) {
-    val angel = remember { mutableStateOf(0.0f) }
+fun RotatingLine(modifier: Modifier = Modifier) {
+    val angel = remember { mutableFloatStateOf(0.0f) }
 
     Canvas(modifier = modifier.fillMaxSize().background(color = Color.Black)) {
         val width = this.size.width
