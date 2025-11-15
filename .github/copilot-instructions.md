@@ -84,6 +84,12 @@ compose-app/
 - Ensure code compiles for all targets
 - Test UI changes on desktop first, then verify on web and Android
 
+## Git Workflow
+- **IMPORTANT**: Do NOT commit changes without explicit user approval
+- Always inform the user about changes before committing
+- Wait for user confirmation before running `git commit`
+- Show a clear summary of changes and ask for approval first
+
 ## Important Files
 - `.github/workflows/push.yml` - CI/CD pipeline
 - `gradle.properties` - Project properties
