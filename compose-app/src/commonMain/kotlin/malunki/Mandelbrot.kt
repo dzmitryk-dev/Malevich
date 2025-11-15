@@ -1,7 +1,5 @@
 package malunki
 
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.keyframes
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -18,7 +16,6 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-
 
 private sealed class ImageState {
     object Loading : ImageState()
@@ -127,17 +124,17 @@ private fun calculateIteration(px: Int, py: Int, xscaleFactor: Float, yscaleFact
 
 private fun colorFromIteration(iteration: Int): Color {
     if (iteration == 256) {
-        return Color.Black  // Points in set are black
+        return Color.Black // Points in set are black
     }
 
     // Create vibrant colors based on escape time
     val normalized = iteration / 256.0f
-    
+
     // Use multiple color bands for more vibrant colors
-    val hue = (iteration * 360 / 30) % 360  // More variation
+    val hue = (iteration * 360 / 30) % 360 // More variation
     val saturation = 0.9f
-    val brightness = 0.3f + (normalized * 0.7f)  // Brighter colors
-    
+    val brightness = 0.3f + (normalized * 0.7f) // Brighter colors
+
     // HSV to RGB conversion
     val h = hue / 60.0f
     val c = brightness * saturation

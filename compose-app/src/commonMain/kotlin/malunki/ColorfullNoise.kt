@@ -1,26 +1,26 @@
-//package malunki
+// package malunki
 //
-//import androidx.compose.foundation.Canvas
-//import androidx.compose.foundation.layout.fillMaxSize
-//import androidx.compose.runtime.Composable
-//import androidx.compose.runtime.LaunchedEffect
-//import androidx.compose.runtime.mutableStateOf
-//import androidx.compose.runtime.remember
-//import androidx.compose.ui.Modifier
-//import androidx.compose.ui.geometry.Offset
-//import androidx.compose.ui.graphics.*
-//import androidx.compose.ui.text.ExperimentalTextApi
-//import androidx.compose.ui.text.TextStyle
-//import androidx.compose.ui.text.drawText
-//import androidx.compose.ui.text.rememberTextMeasurer
-//import kotlinx.coroutines.delay
-//import kotlin.random.Random
-//import kotlin.time.DurationUnit
-//import kotlin.time.toDuration
+// import androidx.compose.foundation.Canvas
+// import androidx.compose.foundation.layout.fillMaxSize
+// import androidx.compose.runtime.Composable
+// import androidx.compose.runtime.LaunchedEffect
+// import androidx.compose.runtime.mutableStateOf
+// import androidx.compose.runtime.remember
+// import androidx.compose.ui.Modifier
+// import androidx.compose.ui.geometry.Offset
+// import androidx.compose.ui.graphics.*
+// import androidx.compose.ui.text.ExperimentalTextApi
+// import androidx.compose.ui.text.TextStyle
+// import androidx.compose.ui.text.drawText
+// import androidx.compose.ui.text.rememberTextMeasurer
+// import kotlinx.coroutines.delay
+// import kotlin.random.Random
+// import kotlin.time.DurationUnit
+// import kotlin.time.toDuration
 //
-//@OptIn(ExperimentalTextApi::class)
-//@Composable
-//fun ColorfullNoise(width: Int, height: Int) {
+// @OptIn(ExperimentalTextApi::class)
+// @Composable
+// fun ColorfullNoise(width: Int, height: Int) {
 //    val debugInfo = remember { mutableStateOf(Pair(0L, 0)) }
 //    val textMeasurer = rememberTextMeasurer()
 //
@@ -76,4 +76,4 @@
 //            delay(250.toDuration(DurationUnit.MILLISECONDS))
 //        }
 //    }
-//}
+// }

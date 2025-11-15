@@ -1,25 +1,25 @@
-//package malunki
+// package malunki
 //
-//import androidx.compose.foundation.Canvas
-//import androidx.compose.foundation.layout.fillMaxSize
-//import androidx.compose.runtime.*
-//import androidx.compose.ui.Modifier
-//import androidx.compose.ui.geometry.Offset
-//import androidx.compose.ui.geometry.Size
-//import androidx.compose.ui.graphics.*
-//import androidx.compose.ui.graphics.drawscope.Stroke
-//import androidx.compose.ui.text.*
-//import kotlinx.coroutines.delay
-//import java.time.Duration
-//import kotlin.math.sqrt
-//import kotlin.random.Random
+// import androidx.compose.foundation.Canvas
+// import androidx.compose.foundation.layout.fillMaxSize
+// import androidx.compose.runtime.*
+// import androidx.compose.ui.Modifier
+// import androidx.compose.ui.geometry.Offset
+// import androidx.compose.ui.geometry.Size
+// import androidx.compose.ui.graphics.*
+// import androidx.compose.ui.graphics.drawscope.Stroke
+// import androidx.compose.ui.text.*
+// import kotlinx.coroutines.delay
+// import java.time.Duration
+// import kotlin.math.sqrt
+// import kotlin.random.Random
 //
-///**
+// /**
 // * Optimized version of Mandelbrot Chat Gpt realization
 // */
-//@OptIn(ExperimentalTextApi::class)
-//@Composable
-//fun MandelbrotChatGptOptimized(width: Int, height: Int) {
+// @OptIn(ExperimentalTextApi::class)
+// @Composable
+// fun MandelbrotChatGptOptimized(width: Int, height: Int) {
 //    val debugDraw = false
 //    var imageBitmap by remember { mutableStateOf(ImageBitmap(width, height)) }
 //    var frame by remember { mutableStateOf(Pair(Offset.Zero, Offset(x = width.toFloat(), y = height.toFloat()))) }
@@ -109,16 +109,16 @@
 //            delay(10L)
 //        }
 //    }
-//}
+// }
 //
-//private fun generateMandelbrotImage(
+// private fun generateMandelbrotImage(
 //    width: Int,
 //    height: Int,
 //    xMin: Double,
 //    xMax: Double,
 //    yMin: Double,
 //    yMax: Double
-//): Array<List<Offset>> {
+// ): Array<List<Offset>> {
 //    val maxIterations = 255 // максимальное количество итераций
 //    val image = Array(0x100) { mutableListOf<Offset>() } // создаем пустой массив списков
 //
@@ -143,15 +143,15 @@
 //            } else {
 //                image[255].add(Offset(i.toFloat(), j.toFloat()))
 //            }
-////            val gray = (255 * iteration / maxIterations) // вычисляем оттенок серого
-////            image[gray].add(Offset(i.toFloat(), j.toFloat())) // добавляем координаты точки в список
+// //            val gray = (255 * iteration / maxIterations) // вычисляем оттенок серого
+// //            image[gray].add(Offset(i.toFloat(), j.toFloat())) // добавляем координаты точки в список
 //        }
 //    }
 //
 //    return image.map { it.toList() }.toTypedArray()
-//}
+// }
 //
-//private fun fromPixelMap(width: Int, height: Int, colorMapping: Array<List<Offset>>): ImageBitmap {
+// private fun fromPixelMap(width: Int, height: Int, colorMapping: Array<List<Offset>>): ImageBitmap {
 //    return ImageBitmap(width, height).also { imageBitmap ->
 //        Canvas(imageBitmap).also { canvas ->
 //            val paint = Paint().apply {
@@ -166,16 +166,16 @@
 //            }
 //        }
 //    }
-//}
+// }
 //
-//private fun findBoundaryOnLine(
+// private fun findBoundaryOnLine(
 //    maxIterations: Int = 1000,
 //    threshold: Double = 0.000001,
 //    xmin: Double = -2.0,
 //    xmax: Double = 1.0,
 //    ymin: Double = -1.5,
 //    ymax: Double = 1.5
-//): Pair<Double, Double> {
+// ): Pair<Double, Double> {
 //    fun isMandelbrotPointOnBoundary(
 //        x: Double,
 //        y: Double,
@@ -235,7 +235,7 @@
 //        iteration++
 //    } while (sqrt(dx*dx + dy*dy) > threshold || iteration < maxIterations)
 //    return Pair(x1 + (x2 - x1) / 2, y1 + (y2 - y1) /2)
-//}
+// }
 //
 //
 //

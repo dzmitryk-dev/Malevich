@@ -17,7 +17,6 @@ import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun RotatingLine(modifier: Modifier) {
-
     val angel = remember { mutableStateOf(0.0f) }
 
     Canvas(modifier = modifier.fillMaxSize().background(color = Color.Black)) {
@@ -54,4 +53,3 @@ fun RotatingLine(modifier: Modifier) {
         angel.value += 1
     }
 }
-

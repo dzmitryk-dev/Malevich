@@ -19,7 +19,6 @@ import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun RotatingLine2(modifier: Modifier) {
-
     var canvasSize = IntSize.Zero
     val lines = remember { mutableStateListOf<Pair<Offset, Offset>>() }
 

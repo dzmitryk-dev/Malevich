@@ -6,7 +6,9 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -22,7 +24,7 @@ import kotlin.time.ExperimentalTime
 fun WhiteNoise(modifier: Modifier = Modifier) {
     var canvasWidth by remember { mutableStateOf(0) }
     var canvasHeight by remember { mutableStateOf(0) }
-    
+
     val randomOffsets by produceState(
         initialValue = emptyList(),
         canvasWidth,
@@ -35,7 +37,7 @@ fun WhiteNoise(modifier: Modifier = Modifier) {
             }
         }
     }
-    
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -62,7 +64,7 @@ private suspend fun generateRandomOffsets(width: Int, height: Int): List<Offset>
     return withContext(Dispatchers.Default) {
         val random = Random(Clock.System.now().toEpochMilliseconds())
         val numPoints = random.nextInt(100, 5000)
-        
+
         List(numPoints) {
             Offset(
                 x = random.nextInt(width).toFloat(),
