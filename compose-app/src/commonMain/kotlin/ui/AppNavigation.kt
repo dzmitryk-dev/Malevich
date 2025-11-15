@@ -29,7 +29,7 @@ internal fun AppNavigation() {
             MainScreen(
                 modifier = Modifier.fillMaxSize(),
                 malunki = malunki,
-                onMalunekClicked = { malunek ->
+                onMalunekClick = { malunek ->
                     navController.navigate(MalunekRoute(title = malunek.title))
                 }
             )

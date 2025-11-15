@@ -415,8 +415,7 @@ formatting:
     active: true
     autoCorrect: true
   NoWildcardImports:
-    active: true
-    packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**'
+    active: false
   NullableTypeSpacing:
     active: true
     autoCorrect: true
@@ -565,7 +564,7 @@ Compose:
   MutableParams:
     active: true
   MutableStateAutoboxing:
-    active: true
+    active: false
   MutableStateParam:
     active: true
   ParameterNaming:

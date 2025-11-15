@@ -24,8 +24,8 @@ private sealed class ImageState {
 
 @Composable
 fun Mandelbrot(modifier: Modifier = Modifier) {
-    var cachedWidth by remember { mutableIntStateOf(0) }
-    var cachedHeight by remember { mutableIntStateOf(0) }
+    var cachedWidth by remember { mutableStateOf(0) }
+    var cachedHeight by remember { mutableStateOf(0) }
 
     val imageState by produceState<ImageState>(initialValue = ImageState.Loading, cachedWidth, cachedHeight) {
         if (cachedWidth > 0 && cachedHeight > 0) {

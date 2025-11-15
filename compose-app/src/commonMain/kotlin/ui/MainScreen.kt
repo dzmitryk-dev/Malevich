@@ -2,9 +2,11 @@ package ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -69,7 +71,7 @@ private fun GridCell(malunek: Malunek, onMalunekClick: (Malunek) -> Unit = {}) {
             .clickable { onMalunekClick(malunek) }
     ) {
         // Draw the preview using Malunek's compose function
-        malunek.impl(Modifier.weight(weight = 1.0f, fill = true).background(color = Color.Green))
+        malunek.impl(Modifier.fillMaxSize().background(color = Color.Green))
         // Display the title of the Malunek
         Text(
             text = malunek.title
